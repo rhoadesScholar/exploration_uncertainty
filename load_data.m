@@ -1,12 +1,16 @@
-function data = load_data
+function data = load_data(file)
     
     % Load data.
     %
-    % USAGE: data = load_data
+    % USAGE: data = load_data(filename)
     %
     % cond: 1 = RS, 2 = SR, 3 = RR, 4 = SS
     
-    X = csvread('data.csv',1);
+    if ~exist('file', 'var')
+        file = 'data.csv';
+    end
+    
+    X = csvread(file,1);
     F = {'subject' 'block' 'trial' 'mu1' 'mu2' 'choice' 'reward' 'RT' 'cond'};
     S = unique(X(:,1));
     

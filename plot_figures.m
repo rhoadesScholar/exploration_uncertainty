@@ -64,10 +64,11 @@ function results = plot_figures(fig,data,results)
             
             % Probit analysis of computational variables
             
-            load results_glme_fig3
+            load results_glme_fig3 results_VTURU
             results = results_VTURU;
                         
             % plot results
+            figure; % added by JLR
             [beta,~,stats] = fixedEffects(results);
             errorbar(beta([3 1 2]),stats.SE([3 1 2]),'ok','MarkerSize',12,'MarkerFaceColor','k');
             set(gca,'FontSize',25,'XTickLabel',{'V' 'RU' 'V/TU'},'XLim',[0.5 3.5],'YLim',[0 1.4]);
